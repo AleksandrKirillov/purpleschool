@@ -9,4 +9,5 @@ const positionLong = 15;
     не пройденные возможности js.
 */
 let result = Math.sqrt((addressLat - positionLat) ** 2 + (addressLong - positionLong) ** 2);
-console.log(result);
+console.log(result); 
+
