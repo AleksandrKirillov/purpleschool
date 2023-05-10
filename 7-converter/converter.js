@@ -1,4 +1,3 @@
-
 function converterCurrency(sum, currencyFrom, currencyTo) {
     if (currencyFrom === currencyTo) {
         return sum;
