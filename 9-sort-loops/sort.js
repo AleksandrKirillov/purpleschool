@@ -1,16 +1,13 @@
 const arr = [1, 40, -5, 10, 0, 100, -20, 4, 3, 23, 200, -2, -5];
-let helpElem = 0;
 
 console.log(arr);
 // Пузырьком
+
 for(const index in arr) {
     for(let j = 0; j < arr.length-index-1; j++) {
         if( arr[j] > arr[j+1] ){
-            helpElem = arr[j];
-            arr[j] = arr[j+1];
-            arr[j+1] = helpElem;
+            [arr[j+1], arr[j]] = [arr[j], arr[j+1]];
         }
-        
     }
 };
 
