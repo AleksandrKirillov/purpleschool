@@ -8,7 +8,7 @@ function crypto(password,){
     
     return cryptoPass.join('');
 };
-
+ 
 function uncrypto(password){
     const uncryptoPass = [...password];
     const anyElem = uncryptoPass.splice(-4);
