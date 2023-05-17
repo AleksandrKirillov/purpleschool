@@ -1,5 +1,5 @@
 const arr = ['10-02-2022', 'тест', '11/12/2023', '00/11/2022', '41/12/2023', 'tes/10/2023',
-             '01/01/1970', '02-31-2022' ];
+             '01/01/1970', '02-31-2022','28-02-2022','30-02-2022' ];
 
 function prepareDates(array){
     return array
@@ -32,15 +32,15 @@ function checkDate(date) {
       }
 
     switch(month){ 
-        case 04:
-        case 05:
-        case 06:
-        case 11:
+        case '04':
+        case '05':
+        case '06':
+        case '11':
             if(day > 30){
                 return false;
             }
             break;
-        case 02:
+        case '02':
             if (year % 4 === 0){
                 if(year % 100 === 0 && year % 400 !== 0 ){
                     if (day > 28) {
