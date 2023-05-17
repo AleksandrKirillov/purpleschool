@@ -1,16 +1,16 @@
 
-function deleteArr(num){
+function CheckElement(num){
     return num > 4;
 } 
 
 function filter(array, fn = (num) => num > 2) {
-    const arrayFilter = new Array(...array);
+    const arrayFilter = [];
     
-    for(let i = arrayFilter.length-1; i >= 0 ; i--){
-        if(fn(arrayFilter[i])) {
-            arrayFilter.splice(i,1);
-        };
-    };
+   for(const el of array){
+        if(!fn(el)){
+            arrayFilter.push(el);
+        }
+   }
 
     return arrayFilter;
 };
@@ -19,4 +19,4 @@ const testArray = [1, 2, 3, 4, 2, 5, 5, 1];
 
 console.log(testArray);
 console.log(filter(testArray));
-console.log(filter(testArray, deleteArr));
+console.log(filter(testArray, CheckElement));
