@@ -1,20 +1,34 @@
-const arr = ['10-02-2022', 'тест', '11/12/2023', '00/11/2022', '41/12/2023', 'tes/10/2023',
-             '01/01/1970', '02-31-2022','28-02-2022','30-02-2022' ];
+const arr = ['10-02-2022', 'тест', '11/12/2023', '00/11/2022', '12/30/2023', 'tes/10/2023',
+              '01/01/1970', '02-31-2022','28-02-2022','30-02-2022' ];
 
 function prepareDates(array){
     return array
     .map(el => {
-            const arrEls = el.split(/\-|\//);
-            if (arrEls.length === 3 && 
-                arrEls[0].length === 2 &&
-                arrEls[1].length === 2 &&
-                arrEls[2].length === 4 ){
-                return arrEls.join('-');
+            const arrElsDash = el.split('-');
+            if (checkLength(arrElsDash)){
+                return arrElsDash.join('-');
             };
+
+            const arrElsSlash = el.split('/');
+            if(checkLength(arrElsSlash)){
+                [arrElsSlash[0], arrElsSlash[1]] = 
+                [arrElsSlash[1], arrElsSlash[0]];
+                return arrElsSlash.join('-');
+            }
         })
     .filter(el => el !== undefined && checkDate(el));//Date.parse(el) )
-}
+};
 
+function checkLength(array){
+    if (array.length === 3 && 
+        array[0].length === 2 &&
+        array[1].length === 2 &&
+        array[2].length === 4 ) {
+            return true;
+        };
+    return false;
+}
+ 
 function checkDate(date) {
     if (!date) {
         return false;
@@ -27,7 +41,7 @@ function checkDate(date) {
 
     const day = numbDate.slice(0,2);
     const month = numbDate.slice(2,4);
-    const year = numbDate.slice(4,8); 
+    const year = numbDate.slice(4); 
 
     if ( month < 01 || day < 01 ||
          month > 12 || day > 31 ) {
@@ -66,6 +80,7 @@ function checkDate(date) {
             } else if(day > 28){
                 return false;
             }
+            break;
         default:
             return false;
     }
@@ -73,5 +88,6 @@ function checkDate(date) {
     return true;
 }
 
+console.log(arr);
 const arr2 = prepareDates(arr);
 console.log(arr2);
