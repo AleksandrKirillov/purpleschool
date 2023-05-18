@@ -13,7 +13,7 @@ function prepareDates(array){
 }
 
 function checkDate(date) {
-    if (date === undefined) {
+    if (!date) {
         return false;
     };
 
@@ -32,9 +32,20 @@ function checkDate(date) {
       }
 
     switch(month){ 
-        case '04':
+        case '01':
+        case '03':
         case '05':
+        case '07':
+        case '08':
+        case '10': 
+        case '12':
+            if(day > 31){
+                return false;
+            }
+            break;
+        case '04':
         case '06':
+        case '09':
         case '11':
             if(day > 30){
                 return false;
@@ -53,7 +64,7 @@ function checkDate(date) {
                 return false;
             }
         default:
-            break;
+            return false;
     }
 
     return true;

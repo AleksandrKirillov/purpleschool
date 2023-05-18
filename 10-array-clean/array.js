@@ -5,7 +5,7 @@ function CheckElement(num){
 
 function filter(array, fn = (num) => num > 2) {
     const arrayFilter = [];
-    
+
    for(const el of array){
         if(!fn(el)){
             arrayFilter.push(el);
