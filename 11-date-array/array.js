@@ -5,7 +5,10 @@ function prepareDates(array){
     return array
     .map(el => {
             const arrEls = el.split(/\-|\//);
-            if (arrEls.length === 3){
+            if (arrEls.length === 3 && 
+                arrEls[0].length === 2 &&
+                arrEls[1].length === 2 &&
+                arrEls[2].length === 4 ){
                 return arrEls.join('-');
             };
         })
