@@ -43,8 +43,8 @@ function checkDate(date) {
     const month = numbDate.slice(2,4);
     const year = numbDate.slice(4); 
 
-    if ( month < 01 || day < 01 ||
-         month > 12 || day > 31 ) {
+    if ( month < '01' || day < '01' ||
+         month > '12' || day > '31' ) {
         return false;
       }
 
