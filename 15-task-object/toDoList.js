@@ -1,61 +1,57 @@
-'use strict';
+"use strict";
 
 const toDoList = {
+    lastId: 1,
     tasks: [
         {
-            title: 'Помыть посуду',
+            title: "Помыть посуду",
             id: 1,
-            priority: 3
-        }
+            priority: 3,
+        },
     ],
-    addTask: function(title, priority){
-        
-        let maxId = this.tasks
-                    .map((object) => object.id )
-                    .reduce((acc, val) => acc < val ? val : acc);
-
-        maxId++;
-
-        this.tasks.push({
-            title: title,
-            id:maxId,
-            priority: priority
-        });
+    addTask: function (task) {
+        this.lastId++;
+        task.id = this.lastId;
+        this.tasks.push(task);
     },
 
-    deleteTask: function(id) {
+    deleteTask: function (id) {
         this.tasks = this.tasks.filter((object) => object.id !== id);
     },
 
-    updateTask: function(id, title, priority) {
-        const index = this.tasks.findIndex((object) => object.id === id );
-        if(index < 0){
-            return false;
-        };
-
-        if (title){
-            this.tasks[index].title = title;
-        }
-
-        if(priority){
-            this.tasks[index].priority = priority;
+    updateTask: function (id, title, priority) {
+        const index = this.tasks.findIndex((object) => object.id === id);
+        if (index >= 0) {
+            if (title) {
+                this.tasks[index].title = title;
+            };
+            if (priority) {
+                this.tasks[index].priority = priority;
+            };
         }
     },
 
-    sortPriority: function() {
+    sortPriority: function () {
         this.tasks.sort((objectA, objectB) => {
             return objectA.priority - objectB.priority;
         });
-    }
-
-
-}
+    },
+};
 
 console.log(toDoList);
-toDoList.addTask('Убрать вещи', 2);
-toDoList.addTask('Почистить ванну', 1);
-console.log(toDoList);
+const task1 = {
+    title: "Убрать вещи",
+    id: undefined,
+    priority: 2,
+};
+const task2 = {
+    title: "Почистить ванну",
+    id: undefined,
+    priority: 1,
+};
+toDoList.addTask(task1);
+toDoList.addTask(task2);
 toDoList.deleteTask(2);
-toDoList.updateTask(1, 'test', 1);
+toDoList.updateTask(1, "test", 1);
 toDoList.sortPriority();
 console.log(toDoList);
