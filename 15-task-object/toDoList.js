@@ -41,12 +41,10 @@ const toDoList = {
 console.log(toDoList);
 const task1 = {
     title: "Убрать вещи",
-    id: undefined,
     priority: 2,
 };
 const task2 = {
     title: "Почистить ванну",
-    id: undefined,
     priority: 1,
 };
 toDoList.addTask(task1);
