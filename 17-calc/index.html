@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,15 +8,24 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body style="background-color: #1c1a25; text-align: center;">
     <img src="./logo.svg" alt="">
     <div class="panel">I love this!</div>
-    <input class="input"/>
-    <input class="input"/></br>
-    <button class="button" onclick="submitForm('+')">+</button>
+    <form onsubmit="submitForm(event)">
+        <input class="input" type="number" required />
+        <input class="input" type="number" required /></br>
+        <button class="button" type="submit" value="+">+</button>
+        <button class="button" type="submit" value="-">-</button>
+        <button class="button" type="submit" value="/">/</button>
+        <button class="button" type="submit" value="*">*</button>
+    </form>
+
+    <!-- <button class="button" onclick="submitForm('+')">+</button>
     <button class="button" onclick="submitForm('-')">-</button>
     <button class="button" onclick="submitForm('/')">/</button>
-    <button class="button" onclick="submitForm('*')">*</button>
+    <button class="button" onclick="submitForm('*')">*</button> -->
     <script src="./app.js"></script>
 </body>
+
 </html>

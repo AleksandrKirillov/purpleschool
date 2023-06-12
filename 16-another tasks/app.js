@@ -19,14 +19,11 @@ const toDoList = {
     this.tasks = this.tasks.filter((object) => object.id !== id);
   },
 
-  updateTask: function (id, title, priority) {
+  updateTask: function (id, field, value) {
     const index = this.tasks.findIndex((object) => object.id === id);
     if (index >= 0) {
-      if (title) {
-        this.tasks[index].title = title;
-      }
-      if (priority) {
-        this.tasks[index].priority = priority;
+      if (field) {
+        this.tasks[index][field] = value;
       }
     }
   },
@@ -63,7 +60,7 @@ toDoList.addTask.call(newTask, {
 });
 
 toDoList.deleteTask.call(newTask, 2);
-toDoList.updateTask.call(newTask, 1, "Выполнить ДЗ", 1);
+toDoList.updateTask.call(newTask, 3, "title", "Проба пера");
 toDoList.sortPriority.call(newTask);
 
 console.log(newTask);
