@@ -5,7 +5,6 @@ function submitForm(e) { //sign) {
     const input1 = document.querySelectorAll(".input")[0].value;
     const input2 = document.querySelectorAll(".input")[1].value;
     const sign = document.activeElement.value;
-    // return false;
 
     const result = getResultCalc(input1, input2, sign);
 
