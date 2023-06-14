@@ -1,13 +1,14 @@
 "use strict";
 
-function submitForm(e) { //sign) {
-    e.preventDefault();
+[...document.querySelectorAll(".button")].forEach(function (item) {
+    item.addEventListener("click", submitForm);
+});
+
+function submitForm() {
     const input1 = document.querySelectorAll(".input")[0].value;
     const input2 = document.querySelectorAll(".input")[1].value;
     const sign = document.activeElement.value;
-
     const result = getResultCalc(input1, input2, sign);
-
     document.querySelector(".panel").innerText = result;
     console.log(input1);
     console.log(input2);
