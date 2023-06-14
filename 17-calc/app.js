@@ -35,7 +35,7 @@ function getResultCalc(value1, value2, sign) {
             if (resDiv === Infinity) {
                 return "На ноль делить нельзя";
             }
-            return value1 / value2;
+            return resDiv;
         default:
             return "Непредвиденная функция";
     }
