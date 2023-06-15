@@ -20,9 +20,9 @@ const toDoList = {
   },
 
   updateTask: function (id, field, value) {
-    const index = this.tasks.findIndex((object) => object.id === id);
-    if (index >= 0) {
-      if (field) {
+    if (field) {
+      const index = this.tasks.findIndex((object) => object.id === id);
+      if (index >= 0) {
         this.tasks[index][field] = value;
       }
     }
