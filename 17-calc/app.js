@@ -1,13 +1,19 @@
 "use strict";
 
-[...document.querySelectorAll(".button")].forEach(function (item) {
-    item.addEventListener("click", submitForm);
-});
+// [...document.querySelectorAll(".button")].forEach(function (item) {
+//     item.addEventListener("click", (event) => clickForCalculation(event));
+// });
 
-function submitForm() {
+document.addEventListener("click", (event) => clickForCalculation(event));
+
+function clickForCalculation(event) {
+    const elem = event.target;
+    if (elem.className !== "button") {
+        return;
+    }
     const input1 = document.querySelectorAll(".input")[0].value;
     const input2 = document.querySelectorAll(".input")[1].value;
-    const sign = document.activeElement.value;
+    const sign = elem.value; //document.activeElement.value;
     const result = getResultCalc(input1, input2, sign);
     document.querySelector(".panel").innerText = result;
     console.log(input1);
