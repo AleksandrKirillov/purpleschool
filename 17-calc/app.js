@@ -14,7 +14,7 @@ function clickForCalculation(event) {
     }
     const firstValue = document.querySelectorAll(".input")[0].value;
     const secondValue = document.querySelectorAll(".input")[1].value;
-    const sign = elem.value; //document.activeElement.value;
+    const sign = elem.dataset.sign;
     const result = getResultCalc(firstValue, secondValue, sign);
     document.querySelector(".panel").innerText = result;
 }
